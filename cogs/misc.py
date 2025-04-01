@@ -126,10 +126,10 @@ Failing to respect the rules will result in a 1,000🍪 penalty OR losing the ro
 To pay the fee, type `!pay <@641788291225747487> 1000` (or just pay <@!1335736614705430729> 1000🍪). 
 If you would rather not pay, ping `@Retchrina` to remove the role.
 **If you're caught lying or reusing an old photo, you will be __banned__ from the server for 14 days.**\
-### Users:
+## <:PaddedPat:635092900769693716> Users:
 Enforcers: <@178965982528798720>
-In Training: <@210817997269499904>\n<@221774651012022273>\n<@289078554837123073>\n<@114922027869143042>\
-<@235482330335019008>\n<@386733260119474176>\n<@281903443893813250>\n<@336555319134257155>\
+In Training: <@210817997269499904>\n<@221774651012022273>\n<@289078554837123073>\n<@114922027869143042>\n\
+<@235482330335019008>\n<@386733260119474176>\n<@281903443893813250>\n<@336555319134257155>\n\
 <@184482129063837696>
 ''')
 
