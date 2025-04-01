@@ -19,6 +19,33 @@ Below is a list of commands you can use to either learn more about the server or
 * Bots: `.pluralkit`, `.modmail`, `.help`, `pk;help`
 * Other: `.feedback`, `.roleplay`, `.textrules`, `.lights`, `.discussion`, `.mediaguide`
 ''')
+    @commands.hybrid_command(aliases=["verified"])
+    async def verify(self,ctx):
+        """copypasta command explaining our verification process"""
+        await ctx.send('''
+# 18+ Verification
+Hi! Thank you for showing interest in becoming a verified member. Remember, this is not the same as becoming vetted, but it is part of the overall process. Need an example? Type `.verify_example`
+## How-To
+1. On a piece of paper, write “GBJ”, today\'s date, and your Discord username.
+2. Take a photo of your ID laying on the previously written on paper.
+3. Take a photo of you holding up your ID next to your face.
+4. Use editing software to blur out all information on your ID aside from your birthdate, and your image.
+5. Open a ticket in <#1172337920431104053> with your images. Wait for staff to review.
+### What types of ID are accepted?
+Anything that has your picture on it, so we can compare it against your face.
+Typically, any government issued photo-ID is accepted. A birth certificate would not.
+### What if I would rather not show my face?
+You can wear a mask to cover the lower half of your face, but we must be able to tell it's you from your ID. If you choose to cover the bottom half, ensure the top half of your face is clear in both images.
+                       ''')
+
+    @commands.hybrid_command(aliases=["verifyexample"])
+    async def verify_example(self,ctx):
+        await ctx.send('''
+# Example verification post
+if your username is .girl-kisser and its January 28th, 2024, your verification would look like this.
+Failure to follow this format will result in your verification request being denied. 
+[Step 1 & 2](https://files.catbox.moe/rztcpp.jpg) | [Step 3](https://files.catbox.moe/xo542q.jpg)
+                       ''')
 
     @commands.hybrid_command()
     async def economy(self, ctx):
