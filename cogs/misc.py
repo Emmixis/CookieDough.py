@@ -123,9 +123,14 @@ When you return, you must also provide another picture.
 * If asleep, you'll be required to show proof upon waking up.
 ## <:MeruPolice:935948597063716874> Punishment for Failure:
 Failing to respect the rules will result in a 1,000🍪 penalty OR losing the role. 
-To pay the fee, type `!pay <@641788291225747487> 1000` (or just pay <@!641788291225747487> 1000🍪). 
-If you would rather not pay, ping `@girl.kisser` or `@Glasswalker` to remove the role.
-**If you're caught lying or reusing an old photo, you will be banned from the server for 14 days.**
+To pay the fee, type `!pay <@641788291225747487> 1000` (or just pay <@!1335736614705430729> 1000🍪). 
+If you would rather not pay, ping `@Retchrina` to remove the role.
+**If you're caught lying or reusing an old photo, you will be __banned__ from the server for 14 days.**\
+### Users:
+Enforcers: <@178965982528798720>
+In Training: <@210817997269499904>\n<@221774651012022273>\n<@289078554837123073>\n<@114922027869143042>\
+<@235482330335019008>\n<@386733260119474176>\n<@281903443893813250>\n<@336555319134257155>\
+<@184482129063837696>
 ''')
 
     @commands.hybrid_command(aliases=["rule2", "rp"])
