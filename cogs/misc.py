@@ -24,7 +24,7 @@ Below is a list of commands you can use to either learn more about the server or
         """copypasta command explaining our verification process"""
         await ctx.send('''
 # 18+ Verification
-Hi! Thank you for showing interest in becoming a verified member. Remember, this is not the same as becoming vetted, but it is part of the overall process. Need an example? Type `.verify_example`
+Hi! Thank you for showing interest in becoming a verified member. Remember, this is not the same as becoming vetted, but it is part of the overall process. Need an example? Type `.verify-example`
 ## How-To
 1. On a piece of paper, write “GBJ”, today\'s date, and your Discord username.
 2. Take a photo of your ID laying on the previously written on paper.
@@ -38,8 +38,8 @@ Typically, any government issued photo-ID is accepted. A birth certificate would
 You can wear a mask to cover the lower half of your face, but we must be able to tell it's you from your ID. If you choose to cover the bottom half, ensure the top half of your face is clear in both images.
                        ''')
 
-    @commands.hybrid_command(aliases=["verifyexample"])
-    async def verify_example(self,ctx):
+    @commands.hybrid_command(aliases=["verify_example", "verify-example"])
+    async def verifyexample(self,ctx):
         await ctx.send('''
 # Example verification post
 if your username is .girl-kisser and its January 28th, 2024, your verification would look like this.
@@ -136,10 +136,10 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
 `.diapertraining` in <#395837746083528704> for more info.\
 ''')
 
-    @commands.hybrid_command()
+    @commands.hybrid_command(aliases=["pottyuntraining", "potty-untraining", "potty-un-training", "pottyun-training", "diaper_training", "diaper-training"])
     async def diapertraining(self, ctx):
         """copypasta explaining the diapertraining role"""
-        embed = discord.Embed(title="<:PottyBanned:779149826154823691> .DiaperTraining",
+        embed = discord.Embed(title="<:PottyBanned:779149826154823691> Diaper Training",
                       description="\"<:K3llyQuestion:779208283197014026> What is this?\" Well basically, when <@&1134156024962617344> is pinged, trainers must post a padded selfie. The role was made to encourage and enforce wearing diapers 24/7.\n**24/7 and .verified? Join now!** You can buy access in <#395837746083528704> for 3000🍪!",
                       colour=0xc254ea)
         embed.add_field(name="📜 Rules:",
