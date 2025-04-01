@@ -148,7 +148,7 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
         embed.add_field(name="<:Spank:633476981174042634> Punishments:",
                 value="Trainers that fail to follow the rules will be fined a 1000🍪 penalty.\n\nFined cookies go to <@1335736614705430729>, so send your cookies to her to pay the fine\n-# `!pay <@1335736614705430729> 1000` \n\nAlternatively, trainers can ping an enforcer to leave diaper-training and have their role removed\n\n**If a trainer is caught lying or reusing an old photo, they will be banned from the server for 14 days and removed from the role.**",
                 inline=True)
-        embed.add_field(name="<:Noted:1173546484264874064> Reaction Key:",
+        embed.add_field(name="<:DiaperPink:586694083884351501> Reaction Key:",
                 value="When <@&1134156024962617344> is pinged, a random reaction from each category will be added to the message which trainers are encouraged to fill out\nHere's what the reactions mean:\n\n**Required**:\nPhoto posted:\n<:GlowDiaperCheck:1356492857237569556>✅\n\n  **Optional Diaper Checks**:\nDry:\n<:PaddedPat:635092900769693716><:IsaButt:583184713611477012><:DrinkYourWater:753894051429744650><:RyderDiaperDab:1176023678698401802><:SammyButt:639496751593685022>\nWet:\n<:PeePee:582451994321747969><:DiaperSquish:644754120426651663><:DesperateHolding:690463676158705694>\nMess:\n<:PicartoMess:779886752357154846><:WoonessMess:639520828505194527><:RyhnMess:419732539951939594>\nSticky:\n<:Cummies:399457276056043520><:BooShy:656529920469630987><:AyinBlush:779202966708027392>",
                 inline=True)
         embed.add_field(name="Rule Clarifications/Notes",
