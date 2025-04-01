@@ -1,5 +1,7 @@
 import logging
+import discord
 from discord.ext import commands
+import random
 
 log = logging.getLogger("cogs.misc")
 
@@ -110,23 +112,49 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
     @commands.hybrid_command()
     async def diapertraining(self, ctx):
         """copypasta explaining the diapertraining role"""
-        await ctx.send('''\
-## <:PottyBanned:779149826154823691> What Is This?
-When the Diaper Training role is pinged, all users must prove they're wearing a diaper with a picture. \
-If you'd like to participate, you can buy the role in <#395837746083528704> for 3000🍪.
-## 📜 Rules:
-* Once pinged, you have 3 hours to prove you're padded. After you've provided proof, you're immune for 8 hours. \
-However, we encourage you to continue participating.
-* You can provide preemptive proof if you know you'll be unable to check discord for over 3 hours. \
-When you return, you must also provide another picture.
- * You must provide a detailed explanation as to why. Mundane reasons won't be accepted.
-* If asleep, you'll be required to show proof upon waking up.
-## <:MeruPolice:935948597063716874> Punishment for Failure:
-Failing to respect the rules will result in a 1,000🍪 penalty OR losing the role. 
-To pay the fee, type `!pay <@641788291225747487> 1000` (or just pay <@!641788291225747487> 1000🍪). 
-If you would rather not pay, ping `@girl.kisser` or `@Glasswalker` to remove the role.
-**If you're caught lying or reusing an old photo, you will be banned from the server for 14 days.**
-''')
+        embed = discord.Embed(title="<:PottyBanned:779149826154823691> .DiaperTraining",
+                      description="\"<:K3llyQuestion:779208283197014026> What is this?\" Well basically, when <@&1134156024962617344> is pinged, trainers must post a padded selfie. The role was made to encourage and enforce wearing diapers 24/7.\n**24/7 and .verified? Join now!** You can buy access in <#395837746083528704> for 3000🍪!",
+                      colour=0xc254ea)
+        embed.add_field(name="📜 Rules:",
+                value="1. Once pinged, trainers have **3 hours** to follow tasks expected of them\n2. Trainers **must** prove they're padded by posting a photo of themselves wearing to <#395817140181008394> or <#1207845981580697650>, then they will be immune for **8 hours**\n-# (However, we encourage them to continue participating)\n2. Trainers **must** react to any ping with a verification checkmark after posting their photo. They're also encouraged (but not required) to react with the diaper check emoji set\n-# (see reaction key for details)",
+                inline=True)
+        embed.add_field(name="<:Spank:633476981174042634> Punishments:",
+                value="Trainers that fail to follow the rules will be fined a 1000🍪 penalty.\n\nFined cookies go to <@1335736614705430729>, so send your cookies to her to pay the fine\n-# `!pay <@1335736614705430729> 1000` \n\nAlternatively, trainers can ping an enforcer to leave diaper-training and have their role removed\n\n**If a trainer is caught lying or reusing an old photo, they will be banned from the server for 14 days and removed from the role.**",
+                inline=True)
+        embed.add_field(name="<:Noted:1173546484264874064> Reaction Key:",
+                value="When <@&1134156024962617344> is pinged, a random reaction from each category will be added to the message which trainers are encouraged to fill out\nHere's what the reactions mean:\n\n**Required**:\nPhoto posted:\n<:GlowDiaperCheck:1356492857237569556>✅\n\n  **Optional Diaper Checks**:\nDry:\n<:PaddedPat:635092900769693716><:IsaButt:583184713611477012><:DrinkYourWater:753894051429744650><:RyderDiaperDab:1176023678698401802><:SammyButt:639496751593685022>\nWet:\n<:PeePee:582451994321747969><:DiaperSquish:644754120426651663><:DesperateHolding:690463676158705694>\nMess:\n<:PicartoMess:779886752357154846><:WoonessMess:639520828505194527><:RyhnMess:419732539951939594>\nSticky:\n<:Cummies:399457276056043520><:BooShy:656529920469630987><:AyinBlush:779202966708027392>",
+                inline=True)
+        embed.add_field(name="Rule Clarifications/Notes",
+                value="- If a trainer is asleep, they will be required to post their photo right when they wake up.\n- Trainers may provide preemptive photos if they'll be awake and unable to check Discord for ≥3 hours. When they return, they must provide another picture.\n -# A good reason and a detailed explanation must be provided to be granted amnesty. Mundane reasons won't be accepted.",
+                inline=False)
+        embed.add_field(name="<:BridApplause:1356492855849385984> Users:",
+                value="<:MeruPolice:935948597063716874> **Enforcers**:\n<@178965982528798720>\n<:PaddedPat:635092900769693716> **Diaper Trainers**:\n<@210817997269499904> <@221774651012022273> <@289078554837123073> <@114922027869143042> <@235482330335019008> <@281903443893813250> <@336555319134257155> <@184482129063837696>",
+                inline=False)
+        embed.set_footer(text="This post was brought to you by Anti Big Toilet")
+        await ctx.send(embed=embed)
+
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        """diapertraining ping. add reactions and run the diapertraining hybrid command to paste the info copypasta"""
+        if message.author.id == self.bot.user.id:
+            return
+        if len(message.role_mentions) > 0:
+            for role_mention in message.role_mentions:
+                if role_mention.id == 634353285498667008:
+                    ctx = await self.bot.get_context(message)
+                    command = self.bot.get_command("diapertraining")
+                    await ctx.invoke(command)
+                    verification = random.choice(['✅', '<:GlowDiaperCheck:1356492857237569556>'])
+                    dry = random.choice(['<:PaddedPat:635092900769693716>', '<:IsaButt:583184713611477012>', '<:DrinkYourWater:753894051429744650>', '<:RyderDiaperDab:1176023678698401802>', '<:SammyButt:639496751593685022>'])
+                    wet = random.choice(['<:PeePee:582451994321747969>', '<:DiaperSquish:644754120426651663>', '<:DesperateHolding:690463676158705694>'])
+                    mess = random.choice(['<:PicartoMess:779886752357154846>', '<:WoonessMess:639520828505194527>', '<:RyhnMess:419732539951939594>'])
+                    sticky = random.choice(['<:Cummies:399457276056043520>', '<:BooShy:656529920469630987>', '<:AyinBlush:779202966708027392>'])
+                    await message.add_reaction(f'{verification}')
+                    await message.add_reaction(f'{dry}')
+                    await message.add_reaction(f'{wet}')
+                    await message.add_reaction(f'{mess}')
+                    await message.add_reaction(f'{sticky}')
+
 
     @commands.hybrid_command(aliases=["rule2", "rp"])
     async def roleplay(self, ctx):
