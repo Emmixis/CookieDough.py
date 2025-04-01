@@ -1,5 +1,7 @@
 import logging
 from discord.ext import commands
+from discord import MessageType, ChannelType, Embed, Webhook
+
 
 log = logging.getLogger("cogs.testing")
 

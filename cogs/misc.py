@@ -167,7 +167,7 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
             return
         if len(message.role_mentions) > 0:
             for role_mention in message.role_mentions:
-                if role_mention.id == 634353285498667008:
+                if role_mention.id == 1134156024962617344:
                     ctx = await self.bot.get_context(message)
                     command = self.bot.get_command("diapertraining")
                     await ctx.invoke(command)
