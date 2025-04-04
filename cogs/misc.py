@@ -143,13 +143,13 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
                       description="\"<:K3llyQuestion:779208283197014026> What is this?\" Well basically, when <@&1134156024962617344> is pinged, trainees must post a padded selfie. The role was made to encourage and enforce wearing diapers 24/7.\n**24/7 and .verified? Join now!** You can buy access in <#395837746083528704> for 3000🍪!",
                       colour=0xc254ea)
         embed.add_field(name="📜 Rules:",
-                value="1. Once pinged, trainees have **3 hours** to follow tasks expected of them\n2. Trainees **must** prove they're padded by posting a photo of themselves wearing to <#395817140181008394> or <#1207845981580697650>, then they will be immune for **8 hours**\n-# (However, we encourage them to continue participating)\n2. Trainees **must** react to any ping with a verification checkmark after posting their photo. They're also encouraged (but not required) to react with the diaper check emoji set\n-# (see reaction key for details)",
+                value="1. Once pinged, trainees have **3 hours** to follow tasks expected of them\n2. Trainees **must** prove they're padded by posting a photo of themselves wearing to <#395817140181008394> or <#1207845981580697650>, then they will be immune for **8 hours**\n-# (However, we encourage them to continue participating)\n2. Trainees **must** react to any ping with <:GlowDiaperCheck:1356492857237569556> after posting their photo.",
                 inline=True)
         embed.add_field(name="<:Spank:633476981174042634> Punishments:",
                 value="Trainees that fail to follow the rules will be fined a 1000🍪 penalty.\n\nFined cookies go to <@1335736614705430729>, so send your cookies to her to pay the fine\n-# `!pay <@1335736614705430729> 1000` \n\nAlternatively, trainees can ping an enforcer to leave diaper-training and have their role removed\n\n**If a trainee is caught lying or reusing an old photo, they will be banned from the server for 14 days and removed from the role.**",
                 inline=True)
-        embed.add_field(name="<:DiaperPink:586694083884351501> Reaction Key:",
-                value="When <@&1134156024962617344> is pinged, a random reaction from each category will be added to the message which trainees are encouraged to fill out\nHere's what the reactions mean:\n\n**Required**:\nPhoto posted:\n<:GlowDiaperCheck:1356492857237569556>✅\n\n  **Optional Diaper Checks**:\nDry:\n<:PaddedPat:635092900769693716><:IsaButt:583184713611477012><:DrinkYourWater:753894051429744650><:RyderDiaperDab:1176023678698401802><:SammyButt:639496751593685022>\nWet:\n<:PeePee:582451994321747969><:DiaperSquish:644754120426651663><:DesperateHolding:690463676158705694>\nMess:\n<:PicartoMess:779886752357154846><:WoonessMess:639520828505194527><:RyhnMess:419732539951939594>\nSticky:\n<:Cummies:399457276056043520><:BooShy:656529920469630987><:AyinBlush:779202966708027392>",
+        embed.add_field(name="<:DiaperPink:586694083884351501> Verification Reaction:",
+                value="When <@&1134156024962617344> is pinged, cookie will react with <:GlowDiaperCheck:1356492857237569556>. Trainees are expected to click the reaction after posting their diaper check photos. This is to give enforcers an easier time telling who has and has not fulfilled the requirements of the ping. Trainees that post photos without reacting will suffer the same consequences of not posting a photo at all, and trainees that react without posting photos will be subject to a temp ban and have the role revoked.",
                 inline=True)
         embed.add_field(name="Rule Clarifications/Notes",
                 value="- If a trainee is asleep, they will be required to post their photo right when they wake up.\n- Trainees may provide preemptive photos if they'll be awake and unable to check Discord for ≥3 hours. When they return, they must provide another picture.\n -# A good reason and a detailed explanation must be provided to be granted amnesty. Mundane reasons won't be accepted.",
@@ -171,16 +171,19 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
                     ctx = await self.bot.get_context(message)
                     command = self.bot.get_command("diapertraining")
                     await ctx.invoke(command)
-                    verification = random.choice(['✅', '<:GlowDiaperCheck:1356492857237569556>'])
-                    dry = random.choice(['<:PaddedPat:635092900769693716>', '<:IsaButt:583184713611477012>', '<:DrinkYourWater:753894051429744650>', '<:RyderDiaperDab:1176023678698401802>', '<:SammyButt:639496751593685022>'])
-                    wet = random.choice(['<:PeePee:582451994321747969>', '<:DiaperSquish:644754120426651663>', '<:DesperateHolding:690463676158705694>'])
-                    mess = random.choice(['<:PicartoMess:779886752357154846>', '<:WoonessMess:639520828505194527>', '<:RyhnMess:419732539951939594>'])
-                    sticky = random.choice(['<:Cummies:399457276056043520>', '<:BooShy:656529920469630987>', '<:AyinBlush:779202966708027392>'])
-                    await message.add_reaction(f'{verification}')
-                    await message.add_reaction(f'{dry}')
-                    await message.add_reaction(f'{wet}')
-                    await message.add_reaction(f'{mess}')
-                    await message.add_reaction(f'{sticky}')
+                    await message.add_reaction('<:GlowDiaperCheck:1356492857237569556>')
+
+                ### Saving random choice code incase we decide to bring back reacting with diaper state
+                    # verification = random.choice(['✅', '<:GlowDiaperCheck:1356492857237569556>'])
+                    # dry = random.choice(['<:PaddedPat:635092900769693716>', '<:IsaButt:583184713611477012>', '<:DrinkYourWater:753894051429744650>', '<:RyderDiaperDab:1176023678698401802>', '<:SammyButt:639496751593685022>'])
+                    # wet = random.choice(['<:PeePee:582451994321747969>', '<:DiaperSquish:644754120426651663>', '<:DesperateHolding:690463676158705694>'])
+                    # mess = random.choice(['<:PicartoMess:779886752357154846>', '<:WoonessMess:639520828505194527>', '<:RyhnMess:419732539951939594>'])
+                    # sticky = random.choice(['<:Cummies:399457276056043520>', '<:BooShy:656529920469630987>', '<:AyinBlush:779202966708027392>'])
+                    # await message.add_reaction(f'{verification}')
+                    # await message.add_reaction(f'{dry}')
+                    # await message.add_reaction(f'{wet}')
+                    # await message.add_reaction(f'{mess}')
+                    # await message.add_reaction(f'{sticky}')
 
 
     @commands.hybrid_command(aliases=["rule2", "rp"])
