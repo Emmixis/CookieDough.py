@@ -155,7 +155,7 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
                 value="- If a trainee is asleep, they will be required to post their photo right when they wake up.\n- Trainees may provide preemptive photos if they'll be awake and unable to check Discord for ≥3 hours. When they return, they must provide another picture.\n -# A good reason and a detailed explanation must be provided to be granted amnesty. Mundane reasons won't be accepted.",
                 inline=False)
         embed.add_field(name="<:BridApplause:1356492855849385984> Users:",
-                value="<:MeruPolice:935948597063716874> **Enforcers**:\n<@178965982528798720>\n<:PaddedPat:635092900769693716> **Diaper Trainees**:\n<@210817997269499904> <@221774651012022273> <@289078554837123073> <@114922027869143042> <@235482330335019008> <@281903443893813250> <@336555319134257155> <@184482129063837696> <@505752964342874114>",
+                value="<:MeruPolice:935948597063716874> **Enforcers**:\n<@178965982528798720>\n<:PaddedPat:635092900769693716> **Diaper Trainees**:\n<@210817997269499904> <@221774651012022273> <@114922027869143042> <@235482330335019008> <@281903443893813250> <@336555319134257155>",
                 inline=False)
         embed.set_footer(text="This post was brought to you by Anti Big Toilet")
         await ctx.send(embed=embed)
