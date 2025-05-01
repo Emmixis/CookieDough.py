@@ -148,14 +148,13 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
                     ctx = await self.bot.get_context(message)
                     command = self.bot.get_command("diapertraining")
                     ctx.invoked = 1
-                    ctx.Role_id = role_mention.id
+                    ctx.role_id = role_mention.id
                     await ctx.invoke(command)
                     await message.add_reaction('<:GlowDiaperCheck:1356492857237569556>')
 
     @commands.hybrid_command(aliases=["pottyuntraining", "potty-untraining", "potty-un-training", "pottyun-training", "diaper_training", "diaper-training"])
     async def diapertraining(self, ctx):
         """copypasta explaining the diapertraining role"""
-        #check to see if command was invoked by ping. Bot fails if these variables are undefined
         embed = discord.Embed(title="<:PottyBanned:779149826154823691> Diaper Training",
                       description="\"<:K3llyQuestion:779208283197014026> What is this?\" Well basically, when <@&1134156024962617344> is pinged, trainees must post a padded selfie. The role was made to encourage and enforce wearing diapers 24/7.\n**24/7 and .verified? Join now!** You can buy access in <#395837746083528704> for 3000🍪!",
                       colour=0xc254ea)
@@ -175,12 +174,12 @@ We had to move the list to [this google sheet](<https://bit.ly/3Bd1Zbq>), it doe
                 value="<:MeruPolice:935948597063716874> **Enforcers**:\n<@178965982528798720>\n<:PaddedPat:635092900769693716> **Diaper Trainees**:\n<@210817997269499904> <@221774651012022273> <@289078554837123073> <@114922027869143042> <@235482330335019008> <@281903443893813250> <@336555319134257155> <@184482129063837696> <@505752964342874114>",
                 inline=False)
         embed.set_footer(text="This post was brought to you by Anti Big Toilet")
-        if ctx.invoked != 1:
-            ctx.invoked = 0
-            ctx.Role_id = 0
+        try: # need to try since the command errors on hybrid invoke if ctx.invoked and ctx.role_id are undefied.
+            ctx.invoked
+        except AttributeError:
             await ctx.send(embed=embed)
-        if ctx.invoked == 1:
-            await ctx.send(f'<@&{ctx.Role_id}>', embed=embed)
+        else:
+            await ctx.send(f'<@&{ctx.role_id}>', embed=embed)
 
                 ### Saving random choice code incase we decide to bring back reacting with diaper state
                     # verification = random.choice(['✅', '<:GlowDiaperCheck:1356492857237569556>'])
