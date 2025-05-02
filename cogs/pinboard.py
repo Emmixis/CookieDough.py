@@ -16,12 +16,15 @@ class Pinboard(commands.Cog):
 
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload,):
-        n = 15
-        f"""auto-pin messages after {n} human 📌 reactions"""
+        """auto-pin messages after n human 📌 reactions"""
         channel = self.bot.get_channel(payload.channel_id)
         message = await channel.fetch_message(payload.message_id)
         if message.type == MessageType.pins_add: #ignore [user] pinned a message server messages
             return
+        if message.channel.name.find('media') > -1: # looks for the position of substring. if it's not found, this returns -1.
+            n = 15 # sets value for required human 📌 reactions in channels with "media" in their name
+        else:
+            n = 7 # sets value for required human 📌 reactions in all other channels
         for reaction in message.reactions:
             if reaction.emoji == '📌':
                 # reaction.me checks if bot reacted, if False that means the message has already been pinned and should return.
