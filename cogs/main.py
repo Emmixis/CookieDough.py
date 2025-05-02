@@ -11,6 +11,7 @@ class Main(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
+        log.info(f'Running discord.py version {discord.__version__}')
         log.info(f'Cookie Dough is logged in as {self.bot.user}')
         await self.bot.change_presence(activity=discord.Game(f"{self.bot.command_prefix}help"))
         log.info(f'Set {self.bot.user} status to \"Playing {self.bot.command_prefix}help\"')
