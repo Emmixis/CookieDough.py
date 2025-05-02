@@ -21,8 +21,8 @@ class Pinboard(commands.Cog):
         message = await channel.fetch_message(payload.message_id)
         if message.type == MessageType.pins_add: #ignore [user] pinned a message server messages
             return
-        if message.channel.name.find('media') > -1: # looks for the position of substring. if it's not found, this returns -1.
-            n = 15 # sets value for required human 📌 reactions in channels with "media" in their name
+        if message.channel.name.find('media') > -1 and message.channel.name.find('off-topic') == -1: # looks for the position of substring. if it's not found, this returns -1.
+            n = 15 # sets value for required human 📌 reactions in channels with "media" and without "off-topic" in their name
         else:
             n = 7 # sets value for required human 📌 reactions in all other channels
         for reaction in message.reactions:
