@@ -138,8 +138,13 @@ Note: {count} role(s) with no members had to be skipped due to having a greater 
         if message.channel.name.find(
                 'media') == -1:  # looks for the position of substring. if it's not found, this returns -1.
             return
-        
+
+        # TODO: THIS SUCKS, Discord embeds are intentionally slow because discord does not pre-crawl links (like telegram)
+        # Image embeds appear immediately, as Discord waits until upload finishes before sending the msg struct,
+        # and we can skip waiting on messages with no links.
+        # This would free up resource, as we no longer have to suspend the current task.
         await asyncio.sleep(2.500) #wait for embeds
+
         if len(message.embeds) + len(message.attachments) > 0:
             await message.add_reaction('📌')  # doesn't check if channel is private, only if media isn't in the name
             return
