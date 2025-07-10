@@ -125,18 +125,34 @@ Note: {count} role(s) with no members had to be skipped due to having a greater 
                 await message.add_reaction('📌')
                 await message.add_reaction('<:CookieHeart:673558008185487381>')
                 return
-        
+
+        # Make sure cookie doesnt kill her own messages, since we already do that logic where its needed
         if message.author.id == self.bot.user.id:
             return
+
         # We need to check if it is a member in addition since webhook message authors are not members and can't have permissions.
         if message.author is discord.Member and message.author.guild_permissions.administrator:
             return
+
+        # Check to see that the channel is a text channel
         if message.channel.type != ChannelType.text:
             return
-        if message.type not in (MessageType.default, MessageType.reply):
+
+        # Check that message type is actionable (or special edge case)
+        if message.type not in (MessageType.default, MessageType.reply, MessageType.thread_created):
             return
+
+        # Check to see if the current channel is a media channel (shouldnt this be at the top?)
         if message.channel.name.find(
                 'media') == -1:  # looks for the position of substring. if it's not found, this returns -1.
+            return
+
+        # Check to see if this is a message about thread creation
+        if message.type == MessageType.thread_created:
+            try:
+                await message.delete() # Delete that message
+            except:
+                pass            # If we cant delete a message, it could be discord API, or it could already be gone. Just bail out here.
             return
 
         # TODO: THIS SUCKS, Discord embeds are intentionally slow because discord does not pre-crawl links (like telegram)
@@ -145,9 +161,12 @@ Note: {count} role(s) with no members had to be skipped due to having a greater 
         # This would free up resource, as we no longer have to suspend the current task.
         await asyncio.sleep(2.500) #wait for embeds
 
+        # If the message has embed or attachment content, add a pin to the msg reactions
         if len(message.embeds) + len(message.attachments) > 0:
             await message.add_reaction('📌')  # doesn't check if channel is private, only if media isn't in the name
             return
+
+        # At this point, we know that the message probably doesnt have media content, so we can remove it.
         try:
             await message.channel.send(f'<@{message.author.id}> Sorry, you can\'t talk in media channels, but you can start a thread! if you posted media, try again and make sure it embedded properly',
                                        delete_after=8)
